@@ -93,13 +93,16 @@ export type SourceLanguage = {
   displayName: string;
 };
 
-const variantDisplay: Map<Variant, string> = new Map([['calc', 'Calculator']]);
+const variantDisplay: Map<Variant, string> = new Map([
+  ['calc', 'Calculator'],
+  ['typescript', 'TypeScript']
+]);
 
 export const styliseSublanguage = (variant: Variant = Constants.defaultSourceVariant) => {
   return `Source \xa7${variantDisplay.has(variant) ? ` ${variantDisplay.get(variant)}` : ''}`;
 };
 
-const sublanguages: { variant: Variant }[] = [{ variant: 'calc' }];
+const sublanguages: { variant: Variant }[] = [{ variant: 'calc' }, { variant: 'typescript' }];
 
 export const sourceLanguages = sublanguages.map(sublang => {
   return {
