@@ -200,6 +200,7 @@ export default function* WorkspaceSaga(): SagaIterator {
     ]);
     const oldVariant = result[0];
     if (newVariant !== oldVariant) {
+      // NOTE: changing variant will not work without the beginClearContext action
       // yield put(actions.beginClearContext(workspaceLocation, false));
       yield put(actions.clearReplOutput(workspaceLocation));
       yield put(actions.debuggerReset(workspaceLocation));
@@ -294,7 +295,8 @@ export function* evalCode(
   // }
 
   function call_variant(variant: Variant) {
-    if (variant === 'calc') {
+    // HACK: run the same slang regardless of selected variant
+    if (variant === 'calc' || variant === 'typescript') {
       return call(runInContext, code, context, {
         scheduler: 'preemptive',
         originalMaxExecTime: execTime,
