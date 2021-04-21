@@ -1,11 +1,12 @@
 import { SagaIterator } from 'redux-saga';
 import { call, put, race, select } from 'redux-saga/effects';
-import { Context, findDeclaration, parseError, resume, runInContext } from 'x-slang';
+//import { Context, findDeclaration, parseError, resume, runInContext } from 'x-slang';
+import { Context, findDeclaration, resume, runInContext } from 'x-slang';
 import { parse } from 'x-slang/dist/parser/parser';
-import { typeCheck } from 'x-slang/dist/typeChecker/typeChecker';
+//import { typeCheck } from 'x-slang/dist/typeChecker/typeChecker';
 import { Variant } from 'x-slang/dist/types';
-import { validateAndAnnotate } from 'x-slang/dist/validator/validator';
 
+//import { validateAndAnnotate } from 'x-slang/dist/validator/validator';
 import { OverallState, styliseSublanguage } from '../application/ApplicationTypes';
 import { DEBUG_RESET, DEBUG_RESUME, HIGHLIGHT_LINE } from '../application/types/InterpreterTypes';
 import { Documentation } from '../documentation/Documentation';
@@ -296,7 +297,7 @@ export function* evalCode(
 
   function call_variant(variant: Variant) {
     // HACK: run the same slang regardless of selected variant
-    if (variant === 'calc' || variant === 'typescript') {
+    if (variant === 'calc') {
       return call(runInContext, code, context, {
         scheduler: 'preemptive',
         originalMaxExecTime: execTime,
@@ -327,16 +328,16 @@ export function* evalCode(
     // we need to parse again, but preserve the errors in context
     const oldErrors = context.errors;
     context.errors = [];
-    const parsed = parse(code, context);
-    const typeErrors = parsed && typeCheck(validateAndAnnotate(parsed!, context), context)[1];
+    // const parsed = parse(code, context);
+    // const typeErrors = parsed && typeCheck(validateAndAnnotate(parsed!, context), context)[1];
 
     context.errors = oldErrors;
 
-    if (typeErrors && typeErrors.length > 0) {
-      yield put(
-        actions.sendReplInputToOutput('Hints:\n' + parseError(typeErrors), workspaceLocation)
-      );
-    }
+    // if (typeErrors && typeErrors.length > 0) {
+    //   yield put(
+    //     actions.sendReplInputToOutput('Hints:\n' + parseError(typeErrors), workspaceLocation)
+    //   );
+    // }
     return;
   } else if (result.status === 'suspended') {
     yield put(actions.endDebuggerPause(workspaceLocation));

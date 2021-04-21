@@ -93,19 +93,13 @@ export type SourceLanguage = {
   displayName: string;
 };
 
-const variantDisplay: Map<Variant, string> = new Map([
-  // HACK: can't get the variant to change
-  ['calc', 'Dynamic TypeScript']
-  // ['calc', 'Source \xa7 Calculator'],
-  // ['typescript', 'TypeScript']
-]);
+const variantDisplay: Map<Variant, string> = new Map([['calc', 'Dynamic TypeScript']]);
 
 export const styliseSublanguage = (variant: Variant = Constants.defaultSourceVariant) => {
   return variantDisplay.has(variant) ? variantDisplay.get(variant) ?? '' : variant;
 };
 
 const sublanguages: { variant: Variant }[] = [{ variant: 'calc' }];
-// const sublanguages: { variant: Variant }[] = [{ variant: 'calc' }, { variant: 'typescript' }];
 
 export const sourceLanguages = sublanguages.map(sublang => {
   return {
