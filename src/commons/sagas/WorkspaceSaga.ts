@@ -205,6 +205,7 @@ export default function* WorkspaceSaga(): SagaIterator {
       // yield put(actions.beginClearContext(workspaceLocation, false));
       yield put(actions.clearReplOutput(workspaceLocation));
       yield put(actions.debuggerReset(workspaceLocation));
+      yield put(actions.endClearContext(newVariant, workspaceLocation));
       yield call(showSuccessMessage, `Switched to ${styliseSublanguage(newVariant)}`, 1000);
     }
   });
@@ -297,7 +298,7 @@ export function* evalCode(
 
   function call_variant(variant: Variant) {
     // HACK: run the same slang regardless of selected variant
-    if (variant === 'calc') {
+    if (variant === 'typescript') {
       return call(runInContext, code, context, {
         scheduler: 'preemptive',
         originalMaxExecTime: execTime,

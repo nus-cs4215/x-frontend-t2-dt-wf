@@ -35,6 +35,8 @@ export const UPDATE_WORKSPACE = 'UPDATE_WORKSPACE';
 export const FETCH_SUBLANGUAGE = 'FETCH_SUBLANGUAGE';
 export const UPDATE_SUBLANGUAGE = 'UPDATE_SUBLANGUAGE';
 export const CHANGE_SUBLANGUAGE = 'CHANGE_SUBLANGUAGE';
+export const BEGIN_CLEAR_CONTEXT = 'BEGIN_CLEAR_CONTEXT';
+export const END_CLEAR_CONTEXT = 'END_CLEAR_CONTEXT';
 
 export type WorkspaceLocation = keyof WorkspaceManagerState;
 
