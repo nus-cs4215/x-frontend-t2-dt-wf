@@ -327,18 +327,13 @@ export function* evalCode(
     yield put(actions.evalInterpreterError(context.errors, workspaceLocation));
 
     // we need to parse again, but preserve the errors in context
-    const oldErrors = context.errors;
-    context.errors = [];
-    // const parsed = parse(code, context);
+    parse(code, context);
     // const typeErrors = parsed && typeCheck(validateAndAnnotate(parsed!, context), context)[1];
-
-    context.errors = oldErrors;
-
-    // if (typeErrors && typeErrors.length > 0) {
-    //   yield put(
-    //     actions.sendReplInputToOutput('Hints:\n' + parseError(typeErrors), workspaceLocation)
-    //   );
-    // }
+    if (context.babelErrors) {
+      yield put(actions.sendReplInputToOutput('Hints:\n' + context.babelErrors, workspaceLocation));
+    } else {
+      put(actions.sendReplInputToOutput('', workspaceLocation));
+    }
     return;
   } else if (result.status === 'suspended') {
     yield put(actions.endDebuggerPause(workspaceLocation));
