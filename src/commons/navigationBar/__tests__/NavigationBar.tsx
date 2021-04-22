@@ -6,7 +6,7 @@ import NavigationBar from '../NavigationBar';
 test('NavigationBar renders "Not logged in" correctly', () => {
   const props = {
     handleLogOut: () => {},
-    title: 'Dynamic TypeScript'
+    title: 'Source Academy'
   };
   const tree = shallow(<NavigationBar {...props} />);
   expect(tree.debug()).toMatchSnapshot();
@@ -15,7 +15,7 @@ test('NavigationBar renders "Not logged in" correctly', () => {
 test('NavigationBar renders correctly with username', () => {
   const props = {
     handleLogOut: () => {},
-    title: 'Dynamic TypeScript',
+    title: 'Source Academy',
     username: 'Evis Rucer'
   };
   const tree = shallow(<NavigationBar {...props} />);

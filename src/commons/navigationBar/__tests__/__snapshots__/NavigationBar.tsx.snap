@@ -6,7 +6,7 @@ exports[`NavigationBar renders "Not logged in" correctly 1`] = `
     <NavLink activeClassName=\\"bp3-active\\" className=\\"NavigationBar__link bp3-button bp3-minimal\\" to=\\"/playground\\">
       <Blueprint3.Icon icon=\\"code\\" />
       <div className=\\"navbar-button-text hidden-xs\\">
-        Source Academy Playground
+        Dynamic TypeScript Playground
       </div>
     </NavLink>
   </Blueprint3.NavbarGroup>
