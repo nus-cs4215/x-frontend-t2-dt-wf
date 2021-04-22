@@ -1,12 +1,19 @@
 import { Links } from './Constants';
 
-const CHAP = '\xa7';
+//const CHAP = '\xa7';
 
 const MAIN_INTRODUCTION = `
-Welcome to the Source Academy playground!
+Welcome to the Dynamic TypeScript playground!
 
-The language [_Source_](${Links.sourceDocs}) is the official language of the textbook [_Structure and
-Interpretation of Computer Programs, JavaScript Adaptation_](${Links.textbook}). `;
+This is language variant of TypeScript that uses TypeScript syntax with dynamic type checking. 
+It is a superset of Source §1 — in Source Academy. 
+
+For constant declarations, Type annotations are optional, But in function declaration and function calls, they are required for parameter and return types in our language.
+
+Lab T2 Dorcas&Wei Feng
+
+
+`;
 
 const HOTKEYS_INTRODUCTION = `
 
@@ -17,8 +24,8 @@ and also the [_Source Academy keyboard shortcuts_](${Links.sourceHotkeys}).
 
 const generateSourceDocsLink = (sourceType: string) => {
   switch (sourceType) {
-    case 'calc':
-      return `You have chosen the sublanguage [_Source ${CHAP}0_] Calculator mode.`;
+    case 'typescript':
+      return `You have chosen the sublanguage Dynamic TypeScript mode.`;
     default:
       return 'You have chosen an invalid sublanguage. Please pick a sublanguage from the dropdown instead.';
   }
