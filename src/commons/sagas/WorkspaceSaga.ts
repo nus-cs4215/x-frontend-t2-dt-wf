@@ -297,7 +297,6 @@ export function* evalCode(
   // }
 
   function call_variant(variant: Variant) {
-    // HACK: run the same slang regardless of selected variant
     if (variant === 'typescript') {
       return call(runInContext, code, context, {
         scheduler: 'preemptive',
