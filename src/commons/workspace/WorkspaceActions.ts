@@ -8,6 +8,7 @@ import { HIGHLIGHT_LINE } from '../application/types/InterpreterTypes';
 import { Position } from '../editor/EditorTypes';
 import { NOTIFY_PROGRAM_EVALUATED, SideContentType } from '../sideContent/SideContentTypes';
 import {
+  BEGIN_CLEAR_CONTEXT,
   BROWSE_REPL_HISTORY_DOWN,
   BROWSE_REPL_HISTORY_UP,
   CHANGE_EDITOR_HEIGHT,
@@ -19,6 +20,7 @@ import {
   CLEAR_REPL_INPUT,
   CLEAR_REPL_OUTPUT,
   CLEAR_REPL_OUTPUT_LAST,
+  END_CLEAR_CONTEXT,
   EVAL_EDITOR,
   EVAL_REPL,
   FETCH_SUBLANGUAGE,
@@ -81,6 +83,15 @@ export const clearReplOutput = (workspaceLocation: WorkspaceLocation) =>
 export const clearReplOutputLast = (workspaceLocation: WorkspaceLocation) =>
   action(CLEAR_REPL_OUTPUT_LAST, { workspaceLocation });
 
+export const beginClearContext = (
+  workspaceLocation: WorkspaceLocation,
+  shouldInitLibrary: boolean
+) =>
+  action(BEGIN_CLEAR_CONTEXT, {
+    workspaceLocation,
+    shouldInitLibrary
+  });
+
 /**
  * Finishes the process to clear the x-slang Context
  * at a specified workspace location.
@@ -93,6 +104,11 @@ export const clearReplOutputLast = (workspaceLocation: WorkspaceLocation) =>
  *
  * @see Library in assessmentShape.ts
  */
+export const endClearContext = (variant: Variant, workspaceLocation: WorkspaceLocation) =>
+  action(END_CLEAR_CONTEXT, {
+    variant,
+    workspaceLocation
+  });
 
 export const evalEditor = (workspaceLocation: WorkspaceLocation) => {
   return action(EVAL_EDITOR, { workspaceLocation });

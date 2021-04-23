@@ -21,7 +21,6 @@ import useHighlighting from './UseHighlighting';
 import useNavigation from './UseNavigation';
 import useRefactor from './UseRefactor';
 import useShareAce from './UseShareAce';
-import useTypeInference from './UseTypeInference';
 import { getModeString, selectMode } from '../utils/AceHelper';
 import Constants from '../utils/Constants';
 
@@ -360,7 +359,7 @@ const EditorBase = React.memo(
 );
 
 // don't create a new list every render.
-const hooks = [useHighlighting, useNavigation, useTypeInference, useShareAce, useRefactor];
+const hooks = [useHighlighting, useNavigation, useShareAce, useRefactor];
 
 const Editor = React.forwardRef<AceEditor, EditorProps>((props, ref) => (
   <EditorBase {...props} hooks={hooks} ref={ref} />
