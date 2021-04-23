@@ -1,11 +1,15 @@
-# x-frontend
-This is a simplified variant of the Cadent Frontend updated to use a
-simple example calculator language (x-slang) to be used as a base for student projects.
+# Dynamic TypeScript playground
+
+This is a simplified variant of the Cadet Frontend playground which has been updated to use a
+[Dynamic TypeScript](https://github.com/nus-cs4215/x-slang-t2-dt-wf) (a variant of TypeScript):
+
+<img src="docs/playground_screenshot.png" alt="screenshot of dynamic typescript playground">
 
 ## Getting Started
 
 ### Installation of Public Edition
-1. First, make sure that you have the `x-slang` repository cloned
+
+1. First, make sure that you have the [`x-slang`](https://github.com/nus-cs4215/x-slang-t2-dt-wf) repository cloned
    locally, and have built it and have linked it.
 2. Install a stable version of NodeJS. The active LTS or current version should work fine.
 3. Clone this repository and navigate to it using "cd" in your command line or shell tool.
@@ -17,6 +21,7 @@ simple example calculator language (x-slang) to be used as a base for student pr
 ## Development
 
 ### Running the tests
+
 Before pushing to Github, ensure that your code is formatted and your tests are passing. These two commands should help with that:
 
 - `yarn run format` : formats your code
@@ -41,4 +46,3 @@ To start contributing, create a fork from our repo and send a PR. Refer to [this
 We reference [this guide](https://github.com/piotrwitek/react-redux-typescript-guide).
 
 See also the [this standard in the wiki](https://github.com/source-academy/cadet-frontend/wiki/Coding-Standard).
-
