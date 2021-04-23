@@ -6,11 +6,11 @@ const MAIN_INTRODUCTION = `
 Welcome to the Dynamic TypeScript playground!
 
 This is language variant of TypeScript that uses TypeScript syntax with dynamic type checking. 
-It is a superset of Source §1 — in Source Academy. 
+It is a superset of Source §1.
 
-For constant declarations, Type annotations are optional, But in function declaration and function calls, they are required for parameter and return types in our language.
+For constant declarations, Type annotations are optional, but in function declaration and function calls, they are required for parameter and return types in our language.
 
-Lab T2 Dorcas&Wei Feng
+Lab T2 Dorcas & Wei Feng
 
 
 `;
