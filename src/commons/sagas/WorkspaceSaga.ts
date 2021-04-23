@@ -331,6 +331,7 @@ export function* evalCode(
     // const typeErrors = parsed && typeCheck(validateAndAnnotate(parsed!, context), context)[1];
     if (context.babelErrors) {
       yield put(actions.sendReplInputToOutput('Hints:\n' + context.babelErrors, workspaceLocation));
+      context.babelErrors = null;
     } else {
       put(actions.sendReplInputToOutput('', workspaceLocation));
     }
