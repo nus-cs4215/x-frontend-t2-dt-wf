@@ -5,10 +5,10 @@ import { Links } from './Constants';
 const MAIN_INTRODUCTION = `
 Welcome to the Dynamic TypeScript playground!
 
-This is language variant of TypeScript that uses TypeScript syntax with dynamic type checking. 
-It is a superset of Source §1.
+Dynamic TypeScript is a variant of TypeScript that uses TypeScript syntax with dynamic type checking. 
+Its language features are similar to Source §1, but with type annotations.
 
-For constant declarations, Type annotations are optional, but in function declaration and function calls, they are required for parameter and return types in our language.
+Type annotations for [constant declarations](${Links.typescriptVariables}) are optional. However, for [functions](${Links.typescriptFunctions}), parameter and return types must be explicitly annotated. You can also use [generic types](${Links.typescriptGenerics}).
 
 Lab T2 Dorcas & Wei Feng
 
